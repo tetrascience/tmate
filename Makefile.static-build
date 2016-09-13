@@ -40,7 +40,7 @@ $(LIBSSH_LIB): $(LIBSSH)/.ready
 
 $(MSGPACK_LIB): $(MSGPACK)/.ready
 	mkdir -p $(MSGPACK)/build
-	cd $(MSGPACK)/build; ([ -f Makefile ] || cmake -DCMAKE_INSTALL_PREFIX:PATH=$(shell pwd)/ext ..)
+	cd $(MSGPACK)/build; ([ -f Makefile ] || cmake -DCMAKE_INSTALL_PREFIX:PATH=$(shell pwd)/ext .. -DMSGPACK_BUILD_EXAMPLES=OFF)
 	+make -C $(MSGPACK)/build install
 
 libc/%.o:
